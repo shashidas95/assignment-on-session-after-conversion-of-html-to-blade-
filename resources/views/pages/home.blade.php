@@ -1,0 +1,15 @@
+@extends('layouts.app')
+
+@section('content')
+    @include('components.about')
+    @include('components.service')
+    @include('components.feature')
+    @include('components.portfolio')
+    @include('components.pricing')
+    @include('components.team')
+    @include('components.testimonial')
+    @include('components.fact')
+    @include('components.blog')
+    @include('components.client')
+    @include('components.contact')
+@endsection
