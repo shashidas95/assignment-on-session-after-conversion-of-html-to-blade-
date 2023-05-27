@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DemoController;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -19,3 +20,9 @@ use App\Http\Controllers\HomeController;
 // });
 
 Route::get('/', [HomeController::class, 'Home']);
+Route::get('/sessionPut/{email}', [DemoController::class, 'SessionPut']);
+Route::get('/sessionPull', [DemoController::class, 'SessionPull']);
+Route::get('/sessionGet', [DemoController::class, 'SessionGet']);
+Route::get('/sessionForget', [DemoController::class, 'SessionForget']);
+Route::get('/sessionFlush', [DemoController::class, 'SessionFlush']);
+
