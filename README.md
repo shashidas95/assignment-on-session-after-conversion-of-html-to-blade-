@@ -63,6 +63,45 @@ Here are the key aspects of working with sessions in Laravel:
 
 Remember that Laravel's session management simplifies the process of working with sessions, making it easy to persist user-specific data across requests in your web application.
 
+
+
+In web.php routes file
+```
+Route::get('/', function (Request $request) {
+    //    dd( Session::all());
+    session()->put('name', 'rashi');
+    // session(["team" => [
+    //     "s",
+    //     "r",
+    //     "h",
+    // ]]);
+    // session()->push('team', 'shash');
+    // session()->forget(['team', 'name']);
+    // session()->flush();
+    // echo session()->increment('visitors');
+
+    return view('welcome');
+});
+```
+
+in blade welcome.blade.php file
+```
+{{ 'Hello world' }}
+{{-- {{ session('name') }}
+{{ dd(session()->all()) }} --}}
+{{-- {{ dd(session('team')) }} --}}
+{{-- {{ dd(session('team.1')) }} --}}
+{{-- {{ dd(session()->get('team.1')) }} --}}
+
+{{-- {{ dd(session('theme', 'dark')) }} --}}
+{{-- {{ dd(session()->all()) }} --}}
+{{-- {{ dd(session()->has('name')) }} --}}
+{{-- {{ dd(session()->missing('fax')) }} --}}
+{{-- {{ dd(session()->pull('name')) }} --}}
+{{ session()->increment('visitors', 5)}}
+```
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
