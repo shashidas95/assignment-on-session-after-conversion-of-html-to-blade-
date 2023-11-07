@@ -3,66 +3,64 @@
 
 Here are the key aspects of working with sessions in Laravel:
 
-**Starting a Session**: To start a session in Laravel, you typically don't need to do anything manually. Laravel automatically starts a session when an HTTP request is made. You can access session data using the
+- **Starting a Session**: To start a session in Laravel, you typically don't need to do anything manually. Laravel automatically starts a session when an HTTP request is made. You can access session data using the
 ```
 session()
 ```
 helper function or via the `Session` facade.
 
-**Storing Data**: You can store data in the session using the `put` method, which is available through the `session()` helper or the `Session` facade. For example:
-   ```
+- **Storing Data**: You can store data in the session using the `put` method, which is available through the `session()` helper or the `Session` facade. For example:
+```
    session()->put('name', 'rashi');
    session(['key' => 'value']);
 ```
-**pushing Data**: You can push data into the current session using the `push` method:
+- **Pushing Data**: You can push data into the current session using the `push` method:
 ```
 session()->push('team', 'shashi');
 ```
-**Retrieving Data**: You can retrieve data from the session using the `get` method:
-   
-   ```
-   $value = session('key');
-     or
-   $value = session()->get('key');
-    or
-   $value = Session::all();
-   ```
-**Flash Data**: Flash data is data that is only available during the next request. This is often used for one-time success or error messages. You can store flash data like this:
-
-   ```
-   session()->flash('message', 'This is a flash message');
-   ```
-   And you can retrieve it in the next request:
-   ```
-   $message = session('message');
-   ```
-**Removing Data**: To remove data from the session, you can use the `forget` method:
-   ```
-   session()->forget('key');
-   ```
-**Checking for Data**: You can check if a specific items data exists in the session using the `has` method:
-   ```php
-   if (session()->has('key')) {
-       // Key exists in the session
-   }
+- **Retrieving Data**: You can retrieve data from the session using the `get` method: 
 ```
-**Checking for Data**: You can check if a specific item  or session key exists in the session using the `exists` method:
+$value = session('key');
+     or
+$value = session()->get('key');
+    or
+$value = Session::all();
+```
+**Flash Data**: Flash data is data that is only available during the next request. This is often used for one-time success or error messages. You can store flash data like this:
+```
+session()->flash('message', 'This is a flash message');
+```
+And you can retrieve it in the next request:
+ ```
+ $message = session('message');
+ ```
+- **Removing Data**: To remove data from the session, you can use the `forget` method:
+```
+session()->forget('key');
+```
+- **Checking for Data**: You can check if a specific items data exists in the session using the `has` method:
+```
+if (session()->has('key')) {
+// Key exists in the session
+}
+```
+- **Checking for Data**: You can check if a specific item  or session key exists in the session using the `exists` method:
 ```
 if (session()->exists('key')) {
        // Key exists in the session
    }
 ```
-**Clearing the Entire Session**: To clear all data from the session, you can use the `flush` method:
-   ```
-   session()->flush();
-   ```
- **Destroying the Session**: To destroy the session and all associated data, you can use the `forget` method:
-   ```php
-   session()->forget('key');
-   ```
-**Session Drivers**: Laravel supports various session drivers, including file, database, and more. You can configure the session driver in the `config/session.php` file.
-**Custom Session Drivers**: You can also create custom session drivers if the provided options do not meet your needs.
-**Session Configuration**: You can configure session options in the `config/session.php` file. This includes settings like the session lifetime, the driver to use, and more.
+- **Clearing the Entire Session**: To clear all data from the session, you can use the `flush` method:
+```
+session()->flush();
+```
+- **Destroying the Session**: To destroy the session and all associated data, you can use the `forget` method:
+```
+session()->forget('key');
+```
+- **Session Drivers**: Laravel supports various session drivers, including file, database, and more. You can configure the session driver in the `config/session.php` file.
+- **Custom Session Drivers**: You can also create custom session drivers if the provided options do not meet your needs.
+- **Session Configuration**: You can configure session options in the `config/session.php` file. This includes settings like the session lifetime, the driver to use, and more.
 
 Remember that Laravel's session management simplifies the process of working with sessions, making it easy to persist user-specific data across requests in your web application.
 
